@@ -1,0 +1,52 @@
+﻿@model CambiaUnaVida.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenido @ViewBag.Nombre</h2>
+
+Perfil:
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.edad)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id = Model.Id })
+        </td>
+    </tr>
+
+</table>
+
+Elija una opción:
+<ul class="list-group">
+    <li class="list-group-item">@Html.ActionLink("Ver mis gatos asignados", "IndexGatosDelResponsable", "Gato", new { id= Model.Id }, null)</li>    
+</ul>

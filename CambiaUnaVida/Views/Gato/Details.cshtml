@@ -1,0 +1,95 @@
+﻿@model CambiaUnaVida.Models.Dominio.Gato
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de @Model.nombre</h2>
+
+<div>
+    <h4>Gato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idResponsableFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idResponsableFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.padecimientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.padecimientos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dieta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dieta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+
+@Html.ActionLink("Petición de adopción", "agregarPeticion", "PeticionAdopcion", new { idGato = Model.id }, null)
+
+<p>
+    @Html.ActionLink("Regresar", "IndexGatosEnAdopcion", "Gato", null, null)
+</p>
+
+

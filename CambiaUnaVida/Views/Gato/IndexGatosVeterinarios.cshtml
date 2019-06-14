@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CambiaUnaVida.ViewModels.Adopcion_VeterinarioViewModel>
+
+@{
+    ViewBag.Title = "IndexGatosVeterinarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mis gatos asignados</h2>
+
+<table class="table">
+    <tr>        
+        <th>
+            @Html.DisplayNameFor(model => model.nombreGato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreAdoptante)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreGato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreAdoptante)
+        </td>
+        <td>
+            @Html.ActionLink("Ver detalles del gato", "Details2", new { id=item.idAdopcion }) |
+            @Html.ActionLink("Ver citas", "IndexCitasVeterinarioPorGato", "CitaVeterinario", new { idGato=item.idGato, idVeterinario=item.idVeterinario, idAdoptante=item.idAdoptante }, null)            
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Regresar", "Index", "Veterinario");
+</p>

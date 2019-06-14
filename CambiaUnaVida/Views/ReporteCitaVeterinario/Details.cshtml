@@ -1,0 +1,41 @@
+﻿@model CambiaUnaVida.Models.Dominio.ReporteCitaVeterinario
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Reporte de la cita con el veterinario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Adoptante
+        </dt>
+
+        <dd>
+            @ViewBag.NombreAdoptante
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (ViewBag.Role == "Veterinario")
+    {        
+        @Html.ActionLink("Regresar", "IndexGatosVeterinarios", "Gato", new { id= Model.CitaVeterinarioFK.idVeterinarioFK }, null)
+    }
+    else
+    {        
+        @Html.ActionLink("Regresar a la página principal", "Index", "Adoptante")
+    }
+</p>

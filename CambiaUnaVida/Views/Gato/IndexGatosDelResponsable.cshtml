@@ -1,0 +1,104 @@
+﻿@model IEnumerable<CambiaUnaVida.ViewModels.Responsable_GatoPeticionCitaAdopcionViewModel>
+
+@{
+    ViewBag.Title = "IndexGatosDelResponsable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gatos a mi cargo</h2>
+
+<table class="table">
+    <tr>        
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.padecimientos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dieta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>               
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.foto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.padecimientos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dieta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>        
+        <td>
+            @Html.ActionLink("Detalles", "Details2", new { id = item.id }) |
+
+            @if (item.idPeticionAdopcion != -1 && (item.estadoPeticion != "Rechazada"))
+            {
+                @Html.ActionLink("Ver petición de adopción", "Details", "PeticionAdopcion", new { id = item.idPeticionAdopcion }, null)
+
+                if (item.estadoPeticion == "Aceptada")
+                {
+                    if (item.idAdopcion != -1)
+                    {
+                        @Html.ActionLink(" | Ver registro de adopción", "Details", "Adopcion", new { id = item.idAdopcion }, null)
+                    }
+                    else
+                    {
+                        @Html.ActionLink(" | Registrar adopción", "Create", "Adopcion", new { idPeticion = item.idPeticionAdopcion }, null)
+                    }
+                }
+                else
+                {
+
+                    if (item.idCitaPeticionAdopcion != -1)
+                    {
+                        @Html.ActionLink(" | Ver cita asignada", "Details", "CitaAdopcion", new { id = item.idCitaPeticionAdopcion }, null)
+                    }
+                    else
+                    {
+                        @Html.ActionLink(" | Asignar cita", "Create", "CitaAdopcion", new { idPeticionAdopcion = item.idPeticionAdopcion }, null)
+                    }
+                }
+            }
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Regresar", "Index", "Responsable")
+</p>

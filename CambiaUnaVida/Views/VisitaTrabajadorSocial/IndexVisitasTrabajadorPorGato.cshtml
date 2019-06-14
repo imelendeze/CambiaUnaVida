@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CambiaUnaVida.ViewModels.VisitaTrabajadorSocial_ReporteViewModel>
+
+@{
+    ViewBag.Title = "IndexVisitasTrabajadoPorGato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Visitas programadas del trabajador social</h2>
+
+@if (ViewBag.Rol == "TrabajadorSocial")
+{
+    <p>
+        @Html.ActionLink("Nueva visita", "Create", new { idGato = ViewBag.idGato, idTrabajadorSocial = ViewBag.idTrabajadorSocial, idAdoptante = ViewBag.idAdoptante })
+    </p>
+}
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora)
+            </td>
+            <td>
+
+                @if (ViewBag.Rol == "TrabajadorSocial")
+                {
+                    if (item.idReporteVisita != -1)
+                    {
+                        @Html.ActionLink("Ver reporte de la visita", "Details", "ReporteVisitaTrabajadorSocial", new { idReporte = item.idReporteVisita }, null)
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Crear reporte de la visita", "Create", "ReporteVisitaTrabajadorSocial", new { idVisitaTrabajadorSocial = item.id }, null)
+                    }
+                }
+                else
+                {
+                    if (item.idReporteVisita != -1)
+                    {
+                        @Html.ActionLink("Ver reporte de la visita", "Details", "ReporteVisitaTrabajadorSocial", new { idReporte = item.idReporteVisita }, null)
+                    }
+                    else
+                    {
+                        <text>El reporte de la visita estará disponible pronto</text>
+                    }
+                }
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+@if (ViewBag.Rol == "Adoptante")
+{
+@Html.ActionLink("Regresar", "IndexAdopcionesAdoptante", "Adopcion")
+}
+else
+{
+
+}

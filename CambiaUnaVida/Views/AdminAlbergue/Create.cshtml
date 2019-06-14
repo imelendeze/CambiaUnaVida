@@ -1,0 +1,277 @@
+﻿@model CambiaUnaVida.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registrar usuario";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Create", "AdminAlbergue", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Cree una cuenta nueva.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group" id="ddlRolesUsuario">
+        @Html.Label("Seleccion el rol del nuevo usuario:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @*@Html.DropDownList("Name")*@
+            @Html.DropDownList("rolesUsuario", (SelectList)ViewBag.Name, " ")
+        </div>
+    </div>
+
+    <div class="form-group" id="txtNombre" style="display:none">
+        @Html.LabelFor(m => m.Nombre, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtApellidos" style="display:none">
+        @Html.LabelFor(m => m.Apellidos, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Apellidos, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtDireccion" style="display:none">
+        @Html.LabelFor(m => m.Direccion, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Direccion, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtTelefono" style="display:none">
+        @Html.LabelFor(m => m.Telefono, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtSexo" style="display:none">
+        @Html.LabelFor(m => m.Sexo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Sexo, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtEdad" style="display:none">
+        @Html.LabelFor(m => m.Edad, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Edad, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtOcupacion" style="display:none">
+        @Html.LabelFor(m => m.Ocupacion, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Ocupacion, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtNombreReferencia" style="display:none">
+        @Html.LabelFor(m => m.NombreReferencia, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.NombreReferencia, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtApellidosReferencia" style="display:none">
+        @Html.LabelFor(m => m.ApellidosReferencia, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ApellidosReferencia, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtTelefonoReferencia" style="display:none">
+        @Html.LabelFor(m => m.TelefonoReferencia, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.TelefonoReferencia, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtDireccionReferencia" style="display:none">
+        @Html.LabelFor(m => m.DireccionReferencia, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DireccionReferencia, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtEmailReferencia" style="display:none">
+        @Html.LabelFor(m => m.EmailReferencia, new { @class = "col-md-2 control-label", required = "required" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EmailReferencia, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtCedula" style="display:none">
+        @Html.LabelFor(m => m.CedulaProfesional, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CedulaProfesional, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtEmail" style="display:none">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtPass" style="display:none">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group" id="txtConfirmPass" style="display:none">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group" id="btnRegistrar" style="display:none">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Registrarse" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la página principal", "Index")
+</div>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js">
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#rolesUsuario').change(function () {
+            var rolSeleccionado = $('#rolesUsuario').val();
+
+            ocultarCampos();
+
+            switch (rolSeleccionado) {
+                case "AdminAlbergue":
+                    mostrarCamposAdminAlbergue();
+                    break;
+                case "Responsable":
+                    mostrarCamposResponsable();
+                    break;
+                case "Adoptante":
+                    mostrarCamposAdoptante();
+                    break;
+                case "TrabajadorSocial":
+                    mostrarCamposTrabajadorSocial();
+                    break;
+                case "Veterinario":
+                    mostrarCamposVeterinario();
+                    break;
+                default:
+                    ocultarCampos();
+                    break;
+            }
+        });
+    });
+
+    function ocultarCampos() {
+        $('#txtNombre').hide();
+        $('#txtApellidos').hide();
+        $('#txtDireccion').hide();
+        $('#txtTelefono').hide();
+        $('#txtSexo').hide();
+        $('#txtEdad').hide();
+        $('#txtOcupacion').hide();
+        $('#txtNombreReferencia').hide();
+        $('#txtApellidosReferencia').hide();
+        $('#txtTelefonoReferencia').hide();
+        $('#txtDireccionReferencia').hide();
+        $('#txtEmailReferencia').hide();
+        $('#txtCedula').hide();
+        $('#txtEmail').hide();
+        $('#txtPass').hide();
+        $('#txtConfirmPass').hide();
+        $('#btnRegistrar').hide();
+    }
+
+    function mostrarCamposAdminAlbergue() {
+        $('#txtNombre').show();
+        $('#txtApellidos').show();
+        $('#txtDireccion').show();
+        $('#txtTelefono').show();
+        $('#txtSexo').show();
+        $('#txtEdad').show();
+        $('#txtEmail').show();
+        $('#txtPass').show();
+        $('#txtConfirmPass').show();
+        $('#btnRegistrar').show();
+    }
+
+    function mostrarCamposResponsable() {
+         $('#txtNombre').show();
+        $('#txtApellidos').show();
+        $('#txtDireccion').show();
+        $('#txtTelefono').show();
+        $('#txtSexo').show();
+        $('#txtEdad').show();
+        $('#txtEmail').show();
+        $('#txtPass').show();
+        $('#txtConfirmPass').show();
+        $('#btnRegistrar').show();
+    }
+
+    function mostrarCamposAdoptante() {
+        $('#txtNombre').show();
+        $('#txtApellidos').show();
+        $('#txtDireccion').show();
+        $('#txtTelefono').show();
+        $('#txtSexo').show();
+        $('#txtEdad').show();
+        $('#txtOcupacion').show();
+        $('#txtNombreReferencia').show();
+        $('#txtApellidosReferencia').show();
+        $('#txtTelefonoReferencia').show();
+        $('#txtDireccionReferencia').show();
+        $('#txtEmailReferencia').show();
+        $('#txtEmail').show();
+        $('#txtPass').show();
+        $('#txtConfirmPass').show();
+        $('#btnRegistrar').show();
+    }
+
+    function mostrarCamposTrabajadorSocial() {
+        $('#txtNombre').show();
+        $('#txtApellidos').show();
+        $('#txtDireccion').show();
+        $('#txtTelefono').show();
+        $('#txtSexo').show();
+        $('#txtEdad').show();
+        $('#txtEmail').show();
+        $('#txtPass').show();
+        $('#txtConfirmPass').show();
+        $('#btnRegistrar').show();
+    }
+
+    function mostrarCamposVeterinario() {
+        $('#txtNombre').show();
+        $('#txtApellidos').show();
+        $('#txtDireccion').show();
+        $('#txtTelefono').show();
+        $('#txtSexo').show();
+        $('#txtEdad').show();
+        $('#txtCedula').show();
+        $('#txtEmail').show();
+        $('#txtPass').show();
+        $('#txtConfirmPass').show();
+        $('#btnRegistrar').show();
+    }
+
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

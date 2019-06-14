@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CambiaUnaVida.Models.Dominio.Gato>
+
+@{
+    ViewBag.Title = "IndexGatosEnAdopcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gatos en adopción, cambia la vida de uno.</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.foto)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { id= item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Regresar a la página principal", "Index", "Adoptante", null, null)
+</p>

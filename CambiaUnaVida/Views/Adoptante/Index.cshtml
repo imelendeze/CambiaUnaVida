@@ -1,0 +1,59 @@
+﻿@model CambiaUnaVida.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenido @ViewBag.Nombre</h2>
+
+Perfil:
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ocupacion)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ocupacion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", Model) |
+            @Html.ActionLink("Detalles", "Details", Model)
+        </td>
+    </tr>
+
+</table>
+
+Elija una opción:
+<ul class="list-group">
+    <li class="list-group-item">@Html.ActionLink("Ver gatos en adopción", "IndexGatosEnAdopcion", "Gato")</li>
+    <li class="list-group-item">@Html.ActionLink("Ver mis peticiones de adopción", "IndexPeticionesAdopcion", "PeticionAdopcion")</li>
+    <li class="list-group-item">@Html.ActionLink("Mis adopciones", "IndexAdopcionesAdoptante", "Adopcion")</li>    
+</ul>

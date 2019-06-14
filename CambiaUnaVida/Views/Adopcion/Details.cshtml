@@ -1,0 +1,59 @@
+﻿@model CambiaUnaVida.Models.Dominio.Adopcion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Adopción</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Adoptante
+        </dt>
+
+        <dd>
+            @ViewBag.NombreAdoptante
+        </dd>
+
+        <dt>
+            Trabajador Social
+        </dt>
+
+        <dd>
+            @ViewBag.NombreTrabajador
+        </dd>
+
+        <dt>
+            Veterinario
+        </dt>
+
+        <dd>
+            @ViewBag.NombreVeterinario
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "IndexGatosDelResponsable", "Gato" , new { id= ViewBag.IdResponsable }, null)
+</p>

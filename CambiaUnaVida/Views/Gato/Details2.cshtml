@@ -1,0 +1,94 @@
+﻿@model CambiaUnaVida.Models.Dominio.Gato
+
+@{
+    ViewBag.Title = "Details2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Información</h2>
+
+<div>
+    <h4>Gato</h4>
+    <hr />
+    <dl class="dl-horizontal">        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.padecimientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.padecimientos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dieta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dieta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (ViewBag.Rol == "Responsable")
+    {
+        @Html.ActionLink("Regresar", "IndexGatosVeterinarios", new { id = ViewBag.IdVeterinario })
+    }
+    else if (ViewBag.Rol == "TrabajadorSocial")
+    {
+        @Html.ActionLink("Regresar", "IndexGatosTrabajadorSocial", new { id = ViewBag.IdTrabajadorSocial })
+    }
+    else
+    {
+        @Html.ActionLink("Regresar", "IndexGatosDelResponsable", new { id = Model.idResponsableFK })
+    }
+</p>

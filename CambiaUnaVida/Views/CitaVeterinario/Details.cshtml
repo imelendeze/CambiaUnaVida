@@ -1,0 +1,67 @@
+﻿@model CambiaUnaVida.Models.Dominio.CitaVeterinario
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CitaVeterinario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idAdoptanteFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idAdoptanteFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idVeterinarioFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idVeterinarioFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idGato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

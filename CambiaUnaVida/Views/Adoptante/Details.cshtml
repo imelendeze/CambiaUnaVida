@@ -1,0 +1,114 @@
+﻿@model CambiaUnaVida.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Perfil</h2>
+
+<div>
+    <h4>@ViewBag.rol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ocupacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ocupacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreReferencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreReferencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidosReferencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidosReferencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefonoReferencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefonoReferencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccionReferencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccionReferencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailReferencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailReferencia)
+        </dd>       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

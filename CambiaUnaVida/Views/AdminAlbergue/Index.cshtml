@@ -1,0 +1,55 @@
+﻿@model CambiaUnaVida.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenido @ViewBag.Nombre</h2>
+
+Información de tu perfil:
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Detalles", "Details", new { id= Model.Id })
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id= Model.Id })
+        </td>
+    </tr>
+
+</table>
+
+Usuarios del sistema:
+
+<ul class="list-group">
+    <li class="list-group-item">@Html.ActionLink("Responsables de gatos", "IndexUsuarios", new { rol = "Responsable" })</li>
+    <li class="list-group-item">@Html.ActionLink("Veterinarios", "IndexUsuarios", new { rol = "Veterinario" })</li>
+    <li class="list-group-item">@Html.ActionLink("Adoptantes", "IndexUsuarios", new { rol = "Adoptante" })</li>
+    <li class="list-group-item">@Html.ActionLink("Trabajadores sociales", "IndexUsuarios", new { rol = "TrabajadorSocial" })</li>
+</ul>
+
+@Html.ActionLink("Administrar gatos del albergue", "IndexGatosAdminAlbergue")
+

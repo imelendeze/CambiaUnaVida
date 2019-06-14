@@ -1,0 +1,49 @@
+﻿@model CambiaUnaVida.ViewModels.PeticionAdopcion_UsuariosViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de la petición</h2>
+
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreGato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreGato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+    </dl>
+</div>
+<p>    
+    @Html.ActionLink("Regresar", "IndexPeticionesAdopcion", "PeticionAdopcion")
+</p>

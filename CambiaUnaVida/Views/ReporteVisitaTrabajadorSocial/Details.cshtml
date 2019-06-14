@@ -1,0 +1,43 @@
+﻿@model CambiaUnaVida.Models.Dominio.ReporteVisitaTrabajadorSocial
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de la visita</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Código de la visita del trabajador social
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idVisitaTrabajadorSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @if (ViewBag.Rol == "TrabajadorSocial")
+    {        
+        @Html.ActionLink("Regresar", "IndexGatosTrabajadorSocial", "Gato", new { id=Model.VisitaTrabajadorSocialFK.idTrabajadorSocialFK }, null)
+    }
+    else
+    {
+        @Html.ActionLink("Regresar a la página principal", "Index", "Adoptante")
+    }
+
+</p>

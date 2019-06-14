@@ -1,0 +1,93 @@
+﻿@model IEnumerable<CambiaUnaVida.ViewModels.CitaVeterinario_ReporteViewModel>
+
+@{
+    ViewBag.Title = "IndexCitasVeterinarioPorGato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citas con el veterinario</h2>
+
+@if (ViewBag.Rol=="Adoptante")
+{
+<p>
+    @Html.ActionLink("Nueva cita", "Create", new { idGato = ViewBag.idGato, idVeterinario = ViewBag.idVeterinario, idAdoptante = ViewBag.idAdoptante })
+</p>
+}
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+
+            @if (ViewBag.Rol == "Veterinario")
+            {
+                if (item.status == "Por confirmar")
+                {
+                    @Html.ActionLink("Confirmar", "actualizarEstadoCita", new { id = item.id, estado = "Confirmar" })
+                    @Html.ActionLink(" | Rechazar", "actualizarEstadoCita", new { id = item.id, estado = "Rechazar" })
+                }
+                else if (item.status == "Confirmada")
+                {
+                    if (item.idReporteCita != -1)
+                    {
+                        @Html.ActionLink("Ver reporte de la consulta", "Details", "ReporteCitaVeterinario", new { idReporte = item.idReporteCita }, null)
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Crear reporte de la consulta", "Create", "ReporteCitaVeterinario", new { idCitaVeterinario = item.id }, null)
+                    }
+                }
+            }
+            else
+            {
+                if (item.idReporteCita != -1)
+                {
+                    @Html.ActionLink("Ver reporte de la consulta", "Details", "ReporteCitaVeterinario", new { idReporte = item.idReporteCita }, null)
+                }
+                else if(item.status!="Rechazada")
+                {
+                    <text>El reporte de la consulta estará disponible pronto</text>
+                }
+            }
+        </td>
+
+    </tr>
+}
+
+</table>
+
+<p>
+    @if (ViewBag.Rol == "Adoptante")
+    {
+        @Html.ActionLink("Regresar", "Index", "Adoptante")
+    }
+    else
+    {
+        @Html.ActionLink("Regresar", "IndexGatosVeterinarios", "Gato", new { id = ViewBag.idVeterinario })
+    }
+</p>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CambiaUnaVida.ViewModels.Adopcion_Usuarios_GatoViewModel>
+
+@{
+    ViewBag.Title = "IndexAdopcionesAdoptante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mis adopciones</h2>
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.nombreTrabajador)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.nombreVeterinario)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreGato)
+        </th>        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreTrabajador)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreVeterinario)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreGato)
+        </td>        
+        <td>
+            @Html.ActionLink("Citas con el veterinario", "IndexCitasVeterinarioPorGato", "CitaVeterinario" , new { idGato=item.idGatoFK, idVeterinario= item.idVeterinarioFK, idAdoptante= item.idAdoptante }, null) |
+            @Html.ActionLink("Visitas del trabajador social", "IndexVisitasTrabajadorPorGato", "VisitaTrabajadorSocial" , new { idGato= item.idGatoFK, idTrabajadorSocial=item.idTrabajadorSocialFK, idAdoptante= item.idAdoptante }, null)            
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Regresar", "Index", "Adoptante")
+</p>

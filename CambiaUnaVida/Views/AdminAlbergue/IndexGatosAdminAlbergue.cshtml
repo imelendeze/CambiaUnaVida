@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CambiaUnaVida.ViewModels.Gato_ResponsableViewModel>
+
+@{
+    ViewBag.Title = "IndexGatosAdminAlbergue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gatos del albergue</h2>
+
+<p>
+    @Html.ActionLink("Agregar un nuevo gato", "CreateCat")
+</p>
+<table class="table">
+    <tr> 
+        <th>
+            @Html.DisplayNameFor(model => model.nombreGato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreResponsable)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexo)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>     
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreGato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreResponsable)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sexo)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditCat", new { idG=item.idGato }) |
+            @Html.ActionLink("Detalles", "DetailsCat", item)           
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Regresar a la página principal", "Index")
+</div>

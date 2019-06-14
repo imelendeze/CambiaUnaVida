@@ -1,0 +1,73 @@
+﻿@model CambiaUnaVida.Models.Dominio.CitaVeterinario
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CitaVeterinario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idAdoptanteFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idAdoptanteFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idVeterinarioFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idVeterinarioFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idGato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

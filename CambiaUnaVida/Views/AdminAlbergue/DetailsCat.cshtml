@@ -1,0 +1,91 @@
+﻿@model CambiaUnaVida.ViewModels.Gato_ResponsableViewModel
+
+@{
+    ViewBag.Title = "Detalles del gato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Información</h4>
+    <hr />
+    <dl class="dl-horizontal">        
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreResponsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreResponsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreGato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreGato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.padecimientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.padecimientos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dieta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dieta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "EditCat", new { idG = Model.idGato }) |
+    @Html.ActionLink("Volver", "IndexGatosAdminAlbergue")
+</p>

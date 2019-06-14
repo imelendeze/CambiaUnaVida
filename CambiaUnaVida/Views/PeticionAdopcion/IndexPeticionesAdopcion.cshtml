@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CambiaUnaVida.ViewModels.PeticionAdopcion_UsuariosViewModel>
+
+@{
+    ViewBag.Title = "IndexPeticionesAdopcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mis peticiones de adopción</h2>
+
+<table class="table">
+    <tr>        
+        <th>
+            @Html.DisplayNameFor(model => model.nombreGato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreGato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>        
+        <td>
+            @Html.ActionLink("Detalles", "DetallesPeticion", item)
+            @if(item.status=="Cita asignada"){
+                @Html.ActionLink("Ver cita", "Details", "CitaAdopcion", new { id = item.idCitaAdopcion }, null)
+            }
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Regresar a la página principal", "Index", "Adoptante")
+</p>
